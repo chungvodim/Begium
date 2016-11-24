@@ -9,13 +9,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Begium.Data.Context;
 using Begium.Data.Repositories;
+using System.Data.Entity.Validation;
+using Begium.Core;
 
 namespace Begium.Data.UnitOfWork
 {
     /// <summary>
     /// Maintains a list of objects affected by a business transaction and coordinates the writing out of changes and the resolution of concurrency problems.
     /// </summary>
-    public class UnitOfWork: IUnitOfWorkAsync
+    public class UnitOfWork: BaseObject, IUnitOfWorkAsync
     {
         #region Private Fields
 
@@ -94,6 +96,7 @@ namespace Begium.Data.UnitOfWork
                 }
                 catch (ObjectDisposedException ex)
                 {
+                    log.Error(ex);
                     // do nothing, the objectContext has already been disposed
                 }
 
@@ -117,7 +120,25 @@ namespace Begium.Data.UnitOfWork
         /// </summary>
         public void Save()
         {
-            _dataContext.SaveChanges();
+            try
+            {
+                _dataContext.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        log.ErrorFormat("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
         }
 
         /// <summary>

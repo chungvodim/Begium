@@ -5,7 +5,6 @@ using System;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using Begium.Data.Repositories;
-using log4net;
 using Begium.Core;
 
 namespace Begium.Services
