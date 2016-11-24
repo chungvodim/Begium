@@ -119,5 +119,10 @@ namespace Begium.Data.Repositories
         {
             return _dbSet.SqlQuery(query);
         }
+        public int Count(Expression<Func<TEntity, bool>> filter)
+        {
+            return _dbSet.Count(filter);
+        }
+
     }
 }

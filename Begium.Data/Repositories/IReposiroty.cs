@@ -45,5 +45,12 @@ namespace Begium.Data.Repositories
         /// <param name="entity"></param>
 
         DbSqlQuery<TEntity> SqlQuery(string query);
+
+        /// <summary>
+        /// count number of records
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        int Count(Expression<Func<TEntity, bool>> filter);
     }
 }
