@@ -76,16 +76,6 @@ namespace Begium.Services
         /// 
         /// </summary>
         /// <returns></returns>
-        bool Save();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        Task<bool> SaveAsync();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="entity"></param>
         void Update(TEntity entity);
     }
 }

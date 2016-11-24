@@ -12,16 +12,7 @@ namespace Begium.Data.UnitOfWork
         /// <returns>
         /// A <see cref="Task" /> number of objects written to the underlying database.
         /// </returns>
-        Task<int> SaveAsync();
-
-        /// <summary>
-        /// Saves all changes made in this context to the underlying database.
-        /// </summary>
-        /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
-        /// <returns>
-        /// A <see cref="Task" /> number of objects written to the underlying database.
-        /// </returns>
-        Task<int> SaveAsync(CancellationToken cancellationToken);
+        Task SaveAsync();
 
         IRepositoryAsync<TEntity> RepositoryAsync<TEntity>() where TEntity : class;
     }

@@ -15,7 +15,7 @@ namespace Begium.Core
             {
                 if (_log == null)
                 {
-                    _log = log4net.LogManager.GetLogger("Base");
+                    _log = log4net.LogManager.GetLogger("BaseLog");
                 }
                 return _log;
             }

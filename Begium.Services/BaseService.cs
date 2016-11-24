@@ -47,40 +47,6 @@ namespace Begium.Services
             unitOfWork.Save();
         }
 
-        public virtual bool Save()
-        {
-            try
-            {
-                unitOfWork.BeginTransaction();
-                unitOfWork.Save();
-                unitOfWork.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-                unitOfWork.Rollback();
-                return false;
-            }
-        }
-
-        public virtual async Task<bool> SaveAsync()
-        {
-            try
-            {
-                unitOfWork.BeginTransaction();
-                await unitOfWork.SaveAsync();
-                unitOfWork.Commit();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-                unitOfWork.Rollback();
-                return false;
-            }
-        }
-
         public virtual void Update(TEntity entity)
         {
             _dataRepository.Update(entity);

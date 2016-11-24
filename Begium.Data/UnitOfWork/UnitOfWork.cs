@@ -115,6 +115,12 @@ namespace Begium.Data.UnitOfWork
 
         #endregion Constructor & Dispose
 
+        /*
+        Entity Framework by default wraps Insert, Update or Delete operation in a transaction, whenever you execute SaveChanges()
+        EF starts a new transaction for each operation and completes the transaction when the operation finishes.When you execute another such operation, a new transaction is started.
+        EF 6 has introduced database.BeginTransaction and Database.UseTransaction to provide more control over transactions.
+        Refer: http://www.entityframeworktutorial.net/entityframework6/transaction-in-entity-framework.aspx
+        */
         /// <summary>
         /// Saves all changes made in this context to the underlying database.
         /// </summary>
@@ -122,7 +128,10 @@ namespace Begium.Data.UnitOfWork
         {
             try
             {
+                BeginTransaction();
+                //saves all operations within one transaction
                 _dataContext.SaveChanges();
+                Commit();
             }
             catch (DbEntityValidationException ex)
             {
@@ -138,6 +147,8 @@ namespace Begium.Data.UnitOfWork
             catch (Exception ex)
             {
                 log.Error(ex);
+                Rollback();
+                throw;
             }
         }
 
@@ -147,21 +158,33 @@ namespace Begium.Data.UnitOfWork
         /// <returns>
         /// A <see cref="Task" /> number of objects written to the underlying database.
         /// </returns>
-        public Task<int> SaveAsync()
+        public async Task SaveAsync()
         {
-            return _dataContext.SaveChangesAsync();
-        }
-
-        /// <summary>
-        /// Saves all changes made in this context to the underlying database.
-        /// </summary>
-        /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
-        /// <returns>
-        /// A <see cref="Task" /> number of objects written to the underlying database.
-        /// </returns>
-        public Task<int> SaveAsync(CancellationToken cancellationToken)
-        {
-            return _dataContext.SaveChangesAsync(cancellationToken);
+            try
+            {
+                BeginTransaction();
+                //saves all operations within one transaction
+                await _dataContext.SaveChangesAsync();
+                Commit();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        log.ErrorFormat("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+                Rollback();
+                throw;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                Rollback();
+                throw;
+            }
         }
 
         /// <summary>
@@ -230,6 +253,7 @@ namespace Begium.Data.UnitOfWork
         public bool Commit()
         {
             _transaction.Commit();
+            _transaction.Dispose();
             return true;
         }
 
