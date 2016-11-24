@@ -23,6 +23,7 @@ namespace Begium.Data.Repositories
         {
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<TEntity>();
+            _dbContext.Database.Log = x => log.Info(x);
         }
 
         public IQueryable<TEntity> Query()

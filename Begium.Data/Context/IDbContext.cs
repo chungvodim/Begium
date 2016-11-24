@@ -187,5 +187,6 @@ namespace Begium.Data.Context
         //     more details.
         [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Set")]
         DbSet Set(Type entityType);
+        Database Database { get; }
     }
 }
