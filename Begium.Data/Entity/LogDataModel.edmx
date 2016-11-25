@@ -1,0 +1,1363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MXLogsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdTitleTemplateLogs">
+          <Key>
+            <PropertyRef Name="AdTitleTemplateLogID" />
+          </Key>
+          <Property Name="AdTitleTemplateLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgencyLogs">
+          <Key>
+            <PropertyRef Name="AgencyLogID" />
+          </Key>
+          <Property Name="AgencyLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgencyID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BranchLogs">
+          <Key>
+            <PropertyRef Name="BranchLogID" />
+          </Key>
+          <Property Name="BranchLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BrowserAgents">
+          <Key>
+            <PropertyRef Name="BrowserAgentID" />
+          </Key>
+          <Property Name="BrowserAgentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrowserAgentString" Type="varchar" MaxLength="2000" />
+          <Property Name="FriendlyName" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="BuyPackageMessages">
+          <Key>
+            <PropertyRef Name="BuyPackageMessageID" />
+          </Key>
+          <Property Name="BuyPackageMessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ReplyTo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="8000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailLeadLogs">
+          <Key>
+            <PropertyRef Name="EmailLeadLogID" />
+          </Key>
+          <Property Name="EmailLeadLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ToAddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateSent" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupLogs">
+          <Key>
+            <PropertyRef Name="GroupLogID" />
+          </Key>
+          <Property Name="GroupLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="3000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImageLogs">
+          <Key>
+            <PropertyRef Name="ImageLogID" />
+          </Key>
+          <Property Name="ImageLogID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageID" Type="bigint" Nullable="false" />
+          <Property Name="S3ID" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BucketName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileSize" Type="bigint" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LeadDeleiveryAddressLogs">
+          <Key>
+            <PropertyRef Name="LeadDeleiveryAddressLogID" />
+          </Key>
+          <Property Name="LeadDeleiveryAddressLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgencyID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LeadDeliveryLogs">
+          <Key>
+            <PropertyRef Name="LeadDeliveryLogID" />
+          </Key>
+          <Property Name="LeadDeliveryLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeadID" Type="int" Nullable="false" />
+          <Property Name="LogTime" Type="datetime" />
+          <Property Name="LogMessage" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="ExternalLeadID" Type="varchar" MaxLength="20" />
+          <Property Name="ExternalLeadType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="OneTimePasswords">
+          <Key>
+            <PropertyRef Name="OneTimePasswordID" />
+          </Key>
+          <Property Name="OneTimePasswordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="OTPKey" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExpirationHours" Type="tinyint" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateFirstLogin" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OverlayPreferenceLogs">
+          <Key>
+            <PropertyRef Name="OverlayPreferenceLogID" />
+          </Key>
+          <Property Name="OverlayPreferenceLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OverlayPreferenceID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhoneTrackingLogs">
+          <Key>
+            <PropertyRef Name="PhoneTrackingLogID" />
+          </Key>
+          <Property Name="PhoneTrackingLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhoneTrackingID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="ForwardFromNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ForwardToNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="bit" Nullable="false" />
+          <Property Name="PhoneTrackingAction" Type="tinyint" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneFeatures" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AgencyUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyActivityLogs">
+          <Key>
+            <PropertyRef Name="PropertyActivityLogID" />
+          </Key>
+          <Property Name="PropertyActivityLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="PropertyID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyDailyActivities">
+          <Key>
+            <PropertyRef Name="PropertyDailyActivityID" />
+          </Key>
+          <Property Name="PropertyDailyActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyID" Type="int" Nullable="false" />
+          <Property Name="AgencyID" Type="int" Nullable="false" />
+          <Property Name="PropertySubmitID" Type="int" Nullable="false" />
+          <Property Name="DateActivity" Type="date" Nullable="false" />
+          <Property Name="Views" Type="int" Nullable="false" />
+          <Property Name="PhoneClicks" Type="int" Nullable="false" />
+          <Property Name="TotalViews" Type="int" Nullable="false" />
+          <Property Name="TotalPhoneClicks" Type="int" Nullable="false" />
+          <Property Name="NumLeads" Type="int" Nullable="false" />
+          <Property Name="NumBumpUps" Type="int" Nullable="false" />
+          <Property Name="NumTopAds" Type="int" Nullable="false" />
+          <Property Name="NumHomepageGallery" Type="int" Nullable="false" />
+          <Property Name="NumHighlights" Type="int" Nullable="false" />
+          <Property Name="NumUrgent" Type="int" Nullable="false" />
+          <Property Name="NumTopAds31" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertySubmitLogs">
+          <Key>
+            <PropertyRef Name="PropertySubmitLogID" />
+          </Key>
+          <Property Name="PropertySubmitLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyID" Type="int" Nullable="false" />
+          <Property Name="ActionType" Type="tinyint" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="ActionStatus" Type="tinyint" Nullable="false" />
+          <Property Name="StatusDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AdID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AgencyID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="HttpStatus" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SignupRequests">
+          <Key>
+            <PropertyRef Name="SignupRequestID" />
+          </Key>
+          <Property Name="SignupRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="URL" Type="varchar" MaxLength="200" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="ContactName" Type="varchar" MaxLength="100" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="14" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="100" />
+          <Property Name="RequestDetails" Type="varchar" MaxLength="8000" />
+          <Property Name="EmailSentTo" Type="varchar" MaxLength="200" />
+          <Property Name="AlterContactPhone" Type="varchar" MaxLength="14" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SuperAdminLogs">
+          <Key>
+            <PropertyRef Name="SuperAdminLogID" />
+          </Key>
+          <Property Name="SuperAdminLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SuperAdminID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="3000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TransactionLogs">
+          <Key>
+            <PropertyRef Name="TransactionLogID" />
+          </Key>
+          <Property Name="TransactionLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionLogType" Type="tinyint" Nullable="false" />
+          <Property Name="PaymentAmount" Type="float" Nullable="false" />
+          <Property Name="PaymentCurrency" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="PaymentStatus" Type="tinyint" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DatePaid" Type="datetime" Nullable="false" />
+          <Property Name="MAC" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="AgencyID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="CustomerReference" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UniqueReference" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OverrideByID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="SuperAdminID" Type="int" Nullable="false" />
+          <Property Name="WorldPayStatus" Type="varchar" MaxLength="20" />
+          <Property Name="WorldPayReferenceId" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="UserActivityLogs">
+          <Key>
+            <PropertyRef Name="UserActivityLogID" />
+          </Key>
+          <Property Name="UserActivityLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgencyID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="PropertyID" Type="int" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLoginLogs">
+          <Key>
+            <PropertyRef Name="UserLoginLogID" />
+          </Key>
+          <Property Name="UserLoginLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="IsSuccess" Type="bit" Nullable="false" />
+          <Property Name="DateLogin" Type="datetime" Nullable="false" />
+          <Property Name="RemoteIP" Type="varchar" MaxLength="39" />
+          <Property Name="Domain" Type="varchar" MaxLength="100" />
+          <Property Name="BrowserAgentID" Type="smallint" />
+          <Property Name="SSOToken" Type="varchar" MaxLength="100" />
+          <Property Name="SSOTimestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserLogs">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Name="UserLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorldPayNotificationLogs">
+          <Key>
+            <PropertyRef Name="WorldPayNotificationLogID" />
+          </Key>
+          <Property Name="WorldPayNotificationLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderEvent" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Notification" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Function Name="Chart_Get_Agency_PageViews_PhoneClicks_LeadActivities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AgencyID" Type="int" Mode="In" />
+          <Parameter Name="FromDate" Type="datetime" Mode="In" />
+          <Parameter Name="ToDate" Type="datetime" Mode="In" />
+          <Parameter Name="FromYear" Type="int" Mode="In" />
+          <Parameter Name="ToYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Chart_Get_Branch_PageViews_PhoneClicks_LeadActivities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AgencyID" Type="int" Mode="In" />
+          <Parameter Name="FromDate" Type="datetime" Mode="In" />
+          <Parameter Name="ToDate" Type="datetime" Mode="In" />
+          <Parameter Name="FromYear" Type="int" Mode="In" />
+          <Parameter Name="ToYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Chart_Get_User_PageViews_PhoneClicks_LeadActivities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AgencyID" Type="int" Mode="In" />
+          <Parameter Name="FromDate" Type="datetime" Mode="In" />
+          <Parameter Name="ToDate" Type="datetime" Mode="In" />
+          <Parameter Name="FromYear" Type="int" Mode="In" />
+          <Parameter Name="ToYear" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SystemHealth_CountActivitiesByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+          <Parameter Name="DateEnd" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SystemHealth_CountLastSubmittedAds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+          <Parameter Name="SubmitType" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="SystemHealth_GetActivityDailyReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SystemHealth_GetActivityMonthlyReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SystemHealth_GetBumpUpDailyReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SystemHealth_GetBumpUpHourlyReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SystemHealth_GetPostEngineDailyReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SystemHealth_GetPostEngineHourlyReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateStart" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="MXLogsModelStoreContainer">
+          <EntitySet Name="AdTitleTemplateLogs" EntityType="Self.AdTitleTemplateLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgencyLogs" EntityType="Self.AgencyLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BranchLogs" EntityType="Self.BranchLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrowserAgents" EntityType="Self.BrowserAgents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuyPackageMessages" EntityType="Self.BuyPackageMessages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailLeadLogs" EntityType="Self.EmailLeadLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupLogs" EntityType="Self.GroupLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageLogs" EntityType="Self.ImageLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeadDeleiveryAddressLogs" EntityType="Self.LeadDeleiveryAddressLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeadDeliveryLogs" EntityType="Self.LeadDeliveryLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OneTimePasswords" EntityType="Self.OneTimePasswords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OverlayPreferenceLogs" EntityType="Self.OverlayPreferenceLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhoneTrackingLogs" EntityType="Self.PhoneTrackingLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyActivityLogs" EntityType="Self.PropertyActivityLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyDailyActivities" EntityType="Self.PropertyDailyActivities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertySubmitLogs" EntityType="Self.PropertySubmitLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SignupRequests" EntityType="Self.SignupRequests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuperAdminLogs" EntityType="Self.SuperAdminLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionLogs" EntityType="Self.TransactionLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserActivityLogs" EntityType="Self.UserActivityLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLoginLogs" EntityType="Self.UserLoginLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogs" EntityType="Self.UserLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorldPayNotificationLogs" EntityType="Self.WorldPayNotificationLogs" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MXLogsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdTitleTemplateLog">
+          <Key>
+            <PropertyRef Name="AdTitleTemplateLogID" />
+          </Key>
+          <Property Name="AdTitleTemplateLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgencyLog">
+          <Key>
+            <PropertyRef Name="AgencyLogID" />
+          </Key>
+          <Property Name="AgencyLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgencyID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BranchLog">
+          <Key>
+            <PropertyRef Name="BranchLogID" />
+          </Key>
+          <Property Name="BranchLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BrowserAgent">
+          <Key>
+            <PropertyRef Name="BrowserAgentID" />
+          </Key>
+          <Property Name="BrowserAgentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrowserAgentString" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="FriendlyName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BuyPackageMessage">
+          <Key>
+            <PropertyRef Name="BuyPackageMessageID" />
+          </Key>
+          <Property Name="BuyPackageMessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ReplyTo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Message" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailLeadLog">
+          <Key>
+            <PropertyRef Name="EmailLeadLogID" />
+          </Key>
+          <Property Name="EmailLeadLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ToAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateSent" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupLog">
+          <Key>
+            <PropertyRef Name="GroupLogID" />
+          </Key>
+          <Property Name="GroupLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImageLog">
+          <Key>
+            <PropertyRef Name="ImageLogID" />
+          </Key>
+          <Property Name="ImageLogID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageID" Type="Int64" Nullable="false" />
+          <Property Name="S3ID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BucketName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FileSize" Type="Int64" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="LeadDeleiveryAddressLog">
+          <Key>
+            <PropertyRef Name="LeadDeleiveryAddressLogID" />
+          </Key>
+          <Property Name="LeadDeleiveryAddressLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgencyID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LeadDeliveryLog">
+          <Key>
+            <PropertyRef Name="LeadDeliveryLogID" />
+          </Key>
+          <Property Name="LeadDeliveryLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeadID" Type="Int32" Nullable="false" />
+          <Property Name="LogTime" Type="DateTime" Precision="3" />
+          <Property Name="LogMessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ExternalLeadID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ExternalLeadType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OneTimePassword">
+          <Key>
+            <PropertyRef Name="OneTimePasswordID" />
+          </Key>
+          <Property Name="OneTimePasswordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="OTPKey" Type="Guid" Nullable="false" />
+          <Property Name="ExpirationHours" Type="Byte" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateFirstLogin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OverlayPreferenceLog">
+          <Key>
+            <PropertyRef Name="OverlayPreferenceLogID" />
+          </Key>
+          <Property Name="OverlayPreferenceLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OverlayPreferenceID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhoneTrackingLog">
+          <Key>
+            <PropertyRef Name="PhoneTrackingLogID" />
+          </Key>
+          <Property Name="PhoneTrackingLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneTrackingID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="ForwardFromNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ForwardToNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="PhoneTrackingAction" Type="Byte" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneFeatures" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgencyUserID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyActivityLog">
+          <Key>
+            <PropertyRef Name="PropertyActivityLogID" />
+          </Key>
+          <Property Name="PropertyActivityLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyDailyActivity">
+          <Key>
+            <PropertyRef Name="PropertyDailyActivityID" />
+          </Key>
+          <Property Name="PropertyDailyActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyID" Type="Int32" Nullable="false" />
+          <Property Name="AgencyID" Type="Int32" Nullable="false" />
+          <Property Name="PropertySubmitID" Type="Int32" Nullable="false" />
+          <Property Name="DateActivity" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Views" Type="Int32" Nullable="false" />
+          <Property Name="PhoneClicks" Type="Int32" Nullable="false" />
+          <Property Name="TotalViews" Type="Int32" Nullable="false" />
+          <Property Name="TotalPhoneClicks" Type="Int32" Nullable="false" />
+          <Property Name="NumLeads" Type="Int32" Nullable="false" />
+          <Property Name="NumBumpUps" Type="Int32" Nullable="false" />
+          <Property Name="NumTopAds" Type="Int32" Nullable="false" />
+          <Property Name="NumHomepageGallery" Type="Int32" Nullable="false" />
+          <Property Name="NumHighlights" Type="Int32" Nullable="false" />
+          <Property Name="NumUrgent" Type="Int32" Nullable="false" />
+          <Property Name="NumTopAds31" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertySubmitLog">
+          <Key>
+            <PropertyRef Name="PropertySubmitLogID" />
+          </Key>
+          <Property Name="PropertySubmitLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyID" Type="Int32" Nullable="false" />
+          <Property Name="ActionType" Type="Byte" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActionStatus" Type="Byte" Nullable="false" />
+          <Property Name="StatusDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgencyID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="HttpStatus" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SignupRequest">
+          <Key>
+            <PropertyRef Name="SignupRequestID" />
+          </Key>
+          <Property Name="SignupRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContactName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RequestDetails" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="EmailSentTo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AlterContactPhone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SuperAdminLog">
+          <Key>
+            <PropertyRef Name="SuperAdminLogID" />
+          </Key>
+          <Property Name="SuperAdminLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuperAdminID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TransactionLog">
+          <Key>
+            <PropertyRef Name="TransactionLogID" />
+          </Key>
+          <Property Name="TransactionLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionLogType" Type="Byte" Nullable="false" />
+          <Property Name="PaymentAmount" Type="Double" Nullable="false" />
+          <Property Name="PaymentCurrency" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaymentStatus" Type="Byte" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DatePaid" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MAC" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgencyID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UniqueReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OverrideByID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="SuperAdminID" Type="Int32" Nullable="false" />
+          <Property Name="WorldPayStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WorldPayReferenceId" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserActivityLog">
+          <Key>
+            <PropertyRef Name="UserActivityLogID" />
+          </Key>
+          <Property Name="UserActivityLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgencyID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyID" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLoginLog">
+          <Key>
+            <PropertyRef Name="UserLoginLogID" />
+          </Key>
+          <Property Name="UserLoginLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="IsSuccess" Type="Boolean" Nullable="false" />
+          <Property Name="DateLogin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RemoteIP" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+          <Property Name="Domain" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserAgentID" Type="Int16" />
+          <Property Name="SSOToken" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SSOTimestamp" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserLog">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Name="UserLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsSuperAdmin" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorldPayNotificationLog">
+          <Key>
+            <PropertyRef Name="WorldPayNotificationLogID" />
+          </Key>
+          <Property Name="WorldPayNotificationLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OrderEvent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Notification" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MXLogsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdTitleTemplateLogs" EntityType="Self.AdTitleTemplateLog" />
+          <EntitySet Name="AgencyLogs" EntityType="Self.AgencyLog" />
+          <EntitySet Name="BranchLogs" EntityType="Self.BranchLog" />
+          <EntitySet Name="BrowserAgents" EntityType="Self.BrowserAgent" />
+          <EntitySet Name="BuyPackageMessages" EntityType="Self.BuyPackageMessage" />
+          <EntitySet Name="EmailLeadLogs" EntityType="Self.EmailLeadLog" />
+          <EntitySet Name="GroupLogs" EntityType="Self.GroupLog" />
+          <EntitySet Name="ImageLogs" EntityType="Self.ImageLog" />
+          <EntitySet Name="LeadDeleiveryAddressLogs" EntityType="Self.LeadDeleiveryAddressLog" />
+          <EntitySet Name="LeadDeliveryLogs" EntityType="Self.LeadDeliveryLog" />
+          <EntitySet Name="OneTimePasswords" EntityType="Self.OneTimePassword" />
+          <EntitySet Name="OverlayPreferenceLogs" EntityType="Self.OverlayPreferenceLog" />
+          <EntitySet Name="PhoneTrackingLogs" EntityType="Self.PhoneTrackingLog" />
+          <EntitySet Name="PropertyActivityLogs" EntityType="Self.PropertyActivityLog" />
+          <EntitySet Name="PropertyDailyActivities" EntityType="Self.PropertyDailyActivity" />
+          <EntitySet Name="PropertySubmitLogs" EntityType="Self.PropertySubmitLog" />
+          <EntitySet Name="SignupRequests" EntityType="Self.SignupRequest" />
+          <EntitySet Name="SuperAdminLogs" EntityType="Self.SuperAdminLog" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TransactionLogs" EntityType="Self.TransactionLog" />
+          <EntitySet Name="UserActivityLogs" EntityType="Self.UserActivityLog" />
+          <EntitySet Name="UserLoginLogs" EntityType="Self.UserLoginLog" />
+          <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+          <EntitySet Name="WorldPayNotificationLogs" EntityType="Self.WorldPayNotificationLog" />
+          <FunctionImport Name="Chart_Get_Agency_PageViews_PhoneClicks_LeadActivities" ReturnType="Collection(MXLogsModel.Chart_Get_Agency_PageViews_PhoneClicks_LeadActivities_Result)">
+            <Parameter Name="AgencyID" Mode="In" Type="Int32" />
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="FromYear" Mode="In" Type="Int32" />
+            <Parameter Name="ToYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Chart_Get_Branch_PageViews_PhoneClicks_LeadActivities">
+            <Parameter Name="AgencyID" Mode="In" Type="Int32" />
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="FromYear" Mode="In" Type="Int32" />
+            <Parameter Name="ToYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Chart_Get_User_PageViews_PhoneClicks_LeadActivities">
+            <Parameter Name="AgencyID" Mode="In" Type="Int32" />
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="FromYear" Mode="In" Type="Int32" />
+            <Parameter Name="ToYear" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MXLogsModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MXLogsModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="SystemHealth_CountActivitiesByDateRange" ReturnType="Collection(MXLogsModel.SystemHealth_CountActivitiesByDateRange_Result)">
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+            <Parameter Name="DateEnd" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SystemHealth_CountLastSubmittedAds" ReturnType="Collection(Int32)">
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+            <Parameter Name="SubmitType" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="SystemHealth_GetActivityDailyReport" ReturnType="Collection(MXLogsModel.SystemHealth_GetActivityDailyReport_Result)">
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SystemHealth_GetActivityMonthlyReport" ReturnType="Collection(MXLogsModel.SystemHealth_GetActivityMonthlyReport_Result)">
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SystemHealth_GetBumpUpDailyReport" ReturnType="Collection(MXLogsModel.SystemHealth_GetBumpUpDailyReport_Result)">
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SystemHealth_GetBumpUpHourlyReport" ReturnType="Collection(MXLogsModel.SystemHealth_GetBumpUpHourlyReport_Result)">
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SystemHealth_GetPostEngineDailyReport" ReturnType="Collection(MXLogsModel.SystemHealth_GetPostEngineDailyReport_Result)">
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SystemHealth_GetPostEngineHourlyReport" ReturnType="Collection(MXLogsModel.SystemHealth_GetPostEngineHourlyReport_Result)">
+            <Parameter Name="DateStart" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Chart_Get_Agency_PageViews_PhoneClicks_LeadActivities_Result">
+          <Property Type="DateTime" Name="DateActivity" Nullable="false" />
+          <Property Type="Int32" Name="Views" Nullable="true" />
+          <Property Type="Int32" Name="PhoneClicks" Nullable="true" />
+          <Property Type="Int32" Name="NumLeads" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SystemHealth_CountActivitiesByDateRange_Result">
+          <Property Type="Int32" Name="TotalViews" Nullable="true" />
+          <Property Type="Int32" Name="TotalPhoneClicks" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SystemHealth_GetActivityDailyReport_Result">
+          <Property Type="Int32" Name="DateReport" Nullable="true" />
+          <Property Type="Int32" Name="TotalViews" Nullable="true" />
+          <Property Type="Int32" Name="TotalPhoneClicks" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SystemHealth_GetActivityMonthlyReport_Result">
+          <Property Type="Int32" Name="DateReport" Nullable="true" />
+          <Property Type="Int32" Name="TotalViews" Nullable="true" />
+          <Property Type="Int32" Name="TotalPhoneClicks" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SystemHealth_GetBumpUpDailyReport_Result">
+          <Property Type="Int32" Name="DateReport" Nullable="true" />
+          <Property Type="Int32" Name="CreatedAds" Nullable="true" />
+          <Property Type="Int32" Name="ErrorAds" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SystemHealth_GetBumpUpHourlyReport_Result">
+          <Property Type="Int32" Name="DateReport" Nullable="true" />
+          <Property Type="Int32" Name="CreatedAds" Nullable="true" />
+          <Property Type="Int32" Name="ErrorAds" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SystemHealth_GetPostEngineDailyReport_Result">
+          <Property Type="Int32" Name="DateReport" Nullable="true" />
+          <Property Type="Int32" Name="CreatedAds" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedAds" Nullable="true" />
+          <Property Type="Int32" Name="ErrorAds" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SystemHealth_GetPostEngineHourlyReport_Result">
+          <Property Type="Int32" Name="DateReport" Nullable="true" />
+          <Property Type="Int32" Name="CreatedAds" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedAds" Nullable="true" />
+          <Property Type="Int32" Name="ErrorAds" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MXLogsModelStoreContainer" CdmEntityContainer="MXLogsEntities">
+          <EntitySetMapping Name="AdTitleTemplateLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.AdTitleTemplateLog">
+              <MappingFragment StoreEntitySet="AdTitleTemplateLogs">
+                <ScalarProperty Name="AdTitleTemplateLogID" ColumnName="AdTitleTemplateLogID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgencyLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.AgencyLog">
+              <MappingFragment StoreEntitySet="AgencyLogs">
+                <ScalarProperty Name="AgencyLogID" ColumnName="AgencyLogID" />
+                <ScalarProperty Name="AgencyID" ColumnName="AgencyID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.BranchLog">
+              <MappingFragment StoreEntitySet="BranchLogs">
+                <ScalarProperty Name="BranchLogID" ColumnName="BranchLogID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BrowserAgents">
+            <EntityTypeMapping TypeName="MXLogsModel.BrowserAgent">
+              <MappingFragment StoreEntitySet="BrowserAgents">
+                <ScalarProperty Name="BrowserAgentID" ColumnName="BrowserAgentID" />
+                <ScalarProperty Name="BrowserAgentString" ColumnName="BrowserAgentString" />
+                <ScalarProperty Name="FriendlyName" ColumnName="FriendlyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuyPackageMessages">
+            <EntityTypeMapping TypeName="MXLogsModel.BuyPackageMessage">
+              <MappingFragment StoreEntitySet="BuyPackageMessages">
+                <ScalarProperty Name="BuyPackageMessageID" ColumnName="BuyPackageMessageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailLeadLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.EmailLeadLog">
+              <MappingFragment StoreEntitySet="EmailLeadLogs">
+                <ScalarProperty Name="EmailLeadLogID" ColumnName="EmailLeadLogID" />
+                <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+                <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.GroupLog">
+              <MappingFragment StoreEntitySet="GroupLogs">
+                <ScalarProperty Name="GroupLogID" ColumnName="GroupLogID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.ImageLog">
+              <MappingFragment StoreEntitySet="ImageLogs">
+                <ScalarProperty Name="ImageLogID" ColumnName="ImageLogID" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="S3ID" ColumnName="S3ID" />
+                <ScalarProperty Name="BucketName" ColumnName="BucketName" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeadDeleiveryAddressLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.LeadDeleiveryAddressLog">
+              <MappingFragment StoreEntitySet="LeadDeleiveryAddressLogs">
+                <ScalarProperty Name="LeadDeleiveryAddressLogID" ColumnName="LeadDeleiveryAddressLogID" />
+                <ScalarProperty Name="AgencyID" ColumnName="AgencyID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeadDeliveryLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.LeadDeliveryLog">
+              <MappingFragment StoreEntitySet="LeadDeliveryLogs">
+                <ScalarProperty Name="LeadDeliveryLogID" ColumnName="LeadDeliveryLogID" />
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="LogMessage" ColumnName="LogMessage" />
+                <ScalarProperty Name="ExternalLeadID" ColumnName="ExternalLeadID" />
+                <ScalarProperty Name="ExternalLeadType" ColumnName="ExternalLeadType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OneTimePasswords">
+            <EntityTypeMapping TypeName="MXLogsModel.OneTimePassword">
+              <MappingFragment StoreEntitySet="OneTimePasswords">
+                <ScalarProperty Name="OneTimePasswordID" ColumnName="OneTimePasswordID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OTPKey" ColumnName="OTPKey" />
+                <ScalarProperty Name="ExpirationHours" ColumnName="ExpirationHours" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateFirstLogin" ColumnName="DateFirstLogin" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OverlayPreferenceLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.OverlayPreferenceLog">
+              <MappingFragment StoreEntitySet="OverlayPreferenceLogs">
+                <ScalarProperty Name="OverlayPreferenceLogID" ColumnName="OverlayPreferenceLogID" />
+                <ScalarProperty Name="OverlayPreferenceID" ColumnName="OverlayPreferenceID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhoneTrackingLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.PhoneTrackingLog">
+              <MappingFragment StoreEntitySet="PhoneTrackingLogs">
+                <ScalarProperty Name="PhoneTrackingLogID" ColumnName="PhoneTrackingLogID" />
+                <ScalarProperty Name="PhoneTrackingID" ColumnName="PhoneTrackingID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="ForwardFromNumber" ColumnName="ForwardFromNumber" />
+                <ScalarProperty Name="ForwardToNumber" ColumnName="ForwardToNumber" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+                <ScalarProperty Name="PhoneTrackingAction" ColumnName="PhoneTrackingAction" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PhoneFeatures" ColumnName="PhoneFeatures" />
+                <ScalarProperty Name="AgencyUserID" ColumnName="AgencyUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyActivityLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.PropertyActivityLog">
+              <MappingFragment StoreEntitySet="PropertyActivityLogs">
+                <ScalarProperty Name="PropertyActivityLogID" ColumnName="PropertyActivityLogID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyDailyActivities">
+            <EntityTypeMapping TypeName="MXLogsModel.PropertyDailyActivity">
+              <MappingFragment StoreEntitySet="PropertyDailyActivities">
+                <ScalarProperty Name="PropertyDailyActivityID" ColumnName="PropertyDailyActivityID" />
+                <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+                <ScalarProperty Name="AgencyID" ColumnName="AgencyID" />
+                <ScalarProperty Name="PropertySubmitID" ColumnName="PropertySubmitID" />
+                <ScalarProperty Name="DateActivity" ColumnName="DateActivity" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="PhoneClicks" ColumnName="PhoneClicks" />
+                <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+                <ScalarProperty Name="TotalPhoneClicks" ColumnName="TotalPhoneClicks" />
+                <ScalarProperty Name="NumLeads" ColumnName="NumLeads" />
+                <ScalarProperty Name="NumBumpUps" ColumnName="NumBumpUps" />
+                <ScalarProperty Name="NumTopAds" ColumnName="NumTopAds" />
+                <ScalarProperty Name="NumHomepageGallery" ColumnName="NumHomepageGallery" />
+                <ScalarProperty Name="NumHighlights" ColumnName="NumHighlights" />
+                <ScalarProperty Name="NumUrgent" ColumnName="NumUrgent" />
+                <ScalarProperty Name="NumTopAds31" ColumnName="NumTopAds31" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertySubmitLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.PropertySubmitLog">
+              <MappingFragment StoreEntitySet="PropertySubmitLogs">
+                <ScalarProperty Name="PropertySubmitLogID" ColumnName="PropertySubmitLogID" />
+                <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+                <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ActionStatus" ColumnName="ActionStatus" />
+                <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+                <ScalarProperty Name="AdID" ColumnName="AdID" />
+                <ScalarProperty Name="AgencyID" ColumnName="AgencyID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="HttpStatus" ColumnName="HttpStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SignupRequests">
+            <EntityTypeMapping TypeName="MXLogsModel.SignupRequest">
+              <MappingFragment StoreEntitySet="SignupRequests">
+                <ScalarProperty Name="SignupRequestID" ColumnName="SignupRequestID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="RequestDetails" ColumnName="RequestDetails" />
+                <ScalarProperty Name="EmailSentTo" ColumnName="EmailSentTo" />
+                <ScalarProperty Name="AlterContactPhone" ColumnName="AlterContactPhone" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuperAdminLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.SuperAdminLog">
+              <MappingFragment StoreEntitySet="SuperAdminLogs">
+                <ScalarProperty Name="SuperAdminLogID" ColumnName="SuperAdminLogID" />
+                <ScalarProperty Name="SuperAdminID" ColumnName="SuperAdminID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MXLogsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.TransactionLog">
+              <MappingFragment StoreEntitySet="TransactionLogs">
+                <ScalarProperty Name="TransactionLogID" ColumnName="TransactionLogID" />
+                <ScalarProperty Name="TransactionLogType" ColumnName="TransactionLogType" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="PaymentCurrency" ColumnName="PaymentCurrency" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DatePaid" ColumnName="DatePaid" />
+                <ScalarProperty Name="MAC" ColumnName="MAC" />
+                <ScalarProperty Name="AgencyID" ColumnName="AgencyID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="CustomerReference" ColumnName="CustomerReference" />
+                <ScalarProperty Name="UniqueReference" ColumnName="UniqueReference" />
+                <ScalarProperty Name="OverrideByID" ColumnName="OverrideByID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SuperAdminID" ColumnName="SuperAdminID" />
+                <ScalarProperty Name="WorldPayStatus" ColumnName="WorldPayStatus" />
+                <ScalarProperty Name="WorldPayReferenceId" ColumnName="WorldPayReferenceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserActivityLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.UserActivityLog">
+              <MappingFragment StoreEntitySet="UserActivityLogs">
+                <ScalarProperty Name="UserActivityLogID" ColumnName="UserActivityLogID" />
+                <ScalarProperty Name="AgencyID" ColumnName="AgencyID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLoginLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.UserLoginLog">
+              <MappingFragment StoreEntitySet="UserLoginLogs">
+                <ScalarProperty Name="UserLoginLogID" ColumnName="UserLoginLogID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="DateLogin" ColumnName="DateLogin" />
+                <ScalarProperty Name="RemoteIP" ColumnName="RemoteIP" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+                <ScalarProperty Name="BrowserAgentID" ColumnName="BrowserAgentID" />
+                <ScalarProperty Name="SSOToken" ColumnName="SSOToken" />
+                <ScalarProperty Name="SSOTimestamp" ColumnName="SSOTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.UserLog">
+              <MappingFragment StoreEntitySet="UserLogs">
+                <ScalarProperty Name="UserLogID" ColumnName="UserLogID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorldPayNotificationLogs">
+            <EntityTypeMapping TypeName="MXLogsModel.WorldPayNotificationLog">
+              <MappingFragment StoreEntitySet="WorldPayNotificationLogs">
+                <ScalarProperty Name="WorldPayNotificationLogID" ColumnName="WorldPayNotificationLogID" />
+                <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+                <ScalarProperty Name="OrderEvent" ColumnName="OrderEvent" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Notification" ColumnName="Notification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Chart_Get_Agency_PageViews_PhoneClicks_LeadActivities" FunctionName="MXLogsModel.Store.Chart_Get_Agency_PageViews_PhoneClicks_LeadActivities">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.Chart_Get_Agency_PageViews_PhoneClicks_LeadActivities_Result">
+                <ScalarProperty Name="DateActivity" ColumnName="DateActivity" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="PhoneClicks" ColumnName="PhoneClicks" />
+                <ScalarProperty Name="NumLeads" ColumnName="NumLeads" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Chart_Get_Branch_PageViews_PhoneClicks_LeadActivities" FunctionName="MXLogsModel.Store.Chart_Get_Branch_PageViews_PhoneClicks_LeadActivities" />
+          <FunctionImportMapping FunctionImportName="Chart_Get_User_PageViews_PhoneClicks_LeadActivities" FunctionName="MXLogsModel.Store.Chart_Get_User_PageViews_PhoneClicks_LeadActivities" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MXLogsModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MXLogsModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="MXLogsModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="MXLogsModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="MXLogsModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MXLogsModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MXLogsModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="SystemHealth_CountActivitiesByDateRange" FunctionName="MXLogsModel.Store.SystemHealth_CountActivitiesByDateRange">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.SystemHealth_CountActivitiesByDateRange_Result">
+                <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+                <ScalarProperty Name="TotalPhoneClicks" ColumnName="TotalPhoneClicks" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SystemHealth_CountLastSubmittedAds" FunctionName="MXLogsModel.Store.SystemHealth_CountLastSubmittedAds" />
+          <FunctionImportMapping FunctionImportName="SystemHealth_GetActivityDailyReport" FunctionName="MXLogsModel.Store.SystemHealth_GetActivityDailyReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.SystemHealth_GetActivityDailyReport_Result">
+                <ScalarProperty Name="DateReport" ColumnName="DateReport" />
+                <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+                <ScalarProperty Name="TotalPhoneClicks" ColumnName="TotalPhoneClicks" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SystemHealth_GetActivityMonthlyReport" FunctionName="MXLogsModel.Store.SystemHealth_GetActivityMonthlyReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.SystemHealth_GetActivityMonthlyReport_Result">
+                <ScalarProperty Name="DateReport" ColumnName="DateReport" />
+                <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+                <ScalarProperty Name="TotalPhoneClicks" ColumnName="TotalPhoneClicks" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SystemHealth_GetBumpUpDailyReport" FunctionName="MXLogsModel.Store.SystemHealth_GetBumpUpDailyReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.SystemHealth_GetBumpUpDailyReport_Result">
+                <ScalarProperty Name="DateReport" ColumnName="DateReport" />
+                <ScalarProperty Name="CreatedAds" ColumnName="CreatedAds" />
+                <ScalarProperty Name="ErrorAds" ColumnName="ErrorAds" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SystemHealth_GetBumpUpHourlyReport" FunctionName="MXLogsModel.Store.SystemHealth_GetBumpUpHourlyReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.SystemHealth_GetBumpUpHourlyReport_Result">
+                <ScalarProperty Name="DateReport" ColumnName="DateReport" />
+                <ScalarProperty Name="CreatedAds" ColumnName="CreatedAds" />
+                <ScalarProperty Name="ErrorAds" ColumnName="ErrorAds" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SystemHealth_GetPostEngineDailyReport" FunctionName="MXLogsModel.Store.SystemHealth_GetPostEngineDailyReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.SystemHealth_GetPostEngineDailyReport_Result">
+                <ScalarProperty Name="DateReport" ColumnName="DateReport" />
+                <ScalarProperty Name="CreatedAds" ColumnName="CreatedAds" />
+                <ScalarProperty Name="UpdatedAds" ColumnName="UpdatedAds" />
+                <ScalarProperty Name="ErrorAds" ColumnName="ErrorAds" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SystemHealth_GetPostEngineHourlyReport" FunctionName="MXLogsModel.Store.SystemHealth_GetPostEngineHourlyReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MXLogsModel.SystemHealth_GetPostEngineHourlyReport_Result">
+                <ScalarProperty Name="DateReport" ColumnName="DateReport" />
+                <ScalarProperty Name="CreatedAds" ColumnName="CreatedAds" />
+                <ScalarProperty Name="UpdatedAds" ColumnName="UpdatedAds" />
+                <ScalarProperty Name="ErrorAds" ColumnName="ErrorAds" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

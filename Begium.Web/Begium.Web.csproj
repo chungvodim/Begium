@@ -66,6 +66,13 @@
       <HintPath>..\packages\JavaScriptEngineSwitcher.V8.2.0.0\lib\net451\ClearScript.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="JavaScriptEngineSwitcher.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
       <HintPath>..\packages\JavaScriptEngineSwitcher.Core.2.0.0\lib\net451\JavaScriptEngineSwitcher.Core.dll</HintPath>
       <Private>True</Private>
@@ -200,9 +207,14 @@
     <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Dependencies\EntityFrameworkFacility.cs" />
+    <Compile Include="Dependencies\WindsorControllerFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Installers\ControllersInstaller.cs" />
+    <Compile Include="Installers\RepositoriesIntaller.cs" />
+    <Compile Include="Installers\ServiceInstaller.cs" />
     <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -225,7 +237,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Dependencies\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -234,6 +245,10 @@
     <ProjectReference Include="..\Begium.Core\Begium.Core.csproj">
       <Project>{e21b87b2-25eb-4710-8364-720054970db8}</Project>
       <Name>Begium.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Begium.Data\Begium.Data.csproj">
+      <Project>{732edca8-96fe-4dd9-8465-34ee105927d7}</Project>
+      <Name>Begium.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Begium.Services\Begium.Services.csproj">
       <Project>{af39cc22-3ad9-4774-ae26-05c2e8cf4578}</Project>

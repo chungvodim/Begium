@@ -30,17 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,26 +54,441 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\IDbContext.cs" />
+    <Compile Include="Context\IBaseDbContext.cs" />
+    <Compile Include="Context\ILogDbContext.cs" />
+    <Compile Include="Context\IMainDbContext.cs" />
+    <Compile Include="Entity\AdTitleTemplateLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AgencyLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BaseEntity.cs" />
+    <Compile Include="Entity\BranchLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BrowserAgent.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BuyPackageMessage.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Chart_Get_Agency_PageViews_PhoneClicks_LeadActivities_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\EmailLeadLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GroupLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AdTitleTemplate.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Agency.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Branch.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BranchManager_GetSuperAdminBranchStats_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BranchPackage.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BranchUser.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Common_GetPropertyByPropertySubmitID_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DashboardStatistic.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DeletedProperty.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ExpiredAgency_GetActiveAds_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ExpiredAgency_GetActiveBranchesWithMaxAds_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ExpiredAgency_GetExpiredBranches_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ExpiredAgency_GetExpiredFeatureAds_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\fnSplitString_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\fn_int_list_to_table_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetActiveBranchesForPostingReport2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetActiveBranchesForPostingReportGA2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetActiveBranchesForPostingReportGA_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetActiveBranchesForPostingReport_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetCityProvinceFromPostalCode_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetLocationPostingReport2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetLocationPostingReportForGroupAgency2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetLocationPostingReportForGroupAgency_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetLocationPostingReport_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPostingReportDetailDataForGroupAgency_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPostingReportDetailData_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPropertyTypePostingReport2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPropertyTypePostingReportForGroupAgency2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPropertyTypePostingReportForGroupAgency_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPropertyTypePostingReport_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSystemLeadReport2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSystemLeadReport_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSystemPostingReport2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSystemPostingReportForGroupAgency2_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSystemPostingReportForGroupAgency_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetUnassignedUsers_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Group.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GroupAdmin.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GroupAgency.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\HealthCheck_GetStats_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Image.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ImageDownloader_GetPropertySubmitsToDownload_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ImageLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KeyValue.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Lead.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LeadDeleiveryAddressLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LeadDeliveryAddress.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LeadDeliveryLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LocalizationString.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LocationMapping.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LocationParser_GetActiveBranches_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LocationParser_GetNextPropertySubmitWithoutLocation_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LocationParser_GetPropertySubmits_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LogDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LogDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LogDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\NotifyEngine_GetAccountsWithoutPackages_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\OneTimePassword.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\OverlayPreference.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\OverlayPreferenceLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PhoneTracking.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PhoneTrackingLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PostEngine_GetActiveBranches_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PostEngine_GetCancelledPropertySubmits_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PostEngine_GetInactivePropertySubmits_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PostEngine_GetNextPropertySubmitToPost_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PostEngine_GetPropertySubmitsToRepost_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PostEngine_GetPropertySubmitsToUpdate_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Property.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PropertyActivityLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PropertyAgent.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PropertyDailyActivity.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PropertyExtentionInfo.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PropertyFeature.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PropertyPOIs.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PropertySubmit.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PropertySubmitLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ScheduleBumpUp_GetNextPendingBumpUp_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SignupRequest.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Split_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\StatusPolling_GetActiveBranches_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\StatusPolling_GetAllActivePropertySubmits_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\StatusPolling_GetAllPropertySubmitsWithoutAdUrl_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\StatusPolling_GetPropertySubmitByAdID_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SuperAdmin.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SuperAdminLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SupportTicket.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sysdiagram.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_CountActivitiesByDateRange_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_GetActivityDailyReport_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_GetActivityMonthlyReport_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_GetBumpUpDailyReport_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_GetBumpUpHourlyReport_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_GetLeadDailyReport_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_GetLeadHourlyReport_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_GetPostEngineDailyReport_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SystemHealth_GetPostEngineHourlyReport_Result.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TransactionLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\User.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UserActivityLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UserBranch.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UserExtensionInfo.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UserLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UserLoginLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\VivanunciosLocation.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\VivanunciosLocations2016_09_19.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\VivanunciosMapping.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\VivanunciosPackage.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\WorldPayNotificationLog.cs">
+      <DependentUpon>LogDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\x_OneTimePasswords.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendEntity\ExtendMXLogEntities.cs" />
+    <Compile Include="ExtendEntity\ExtendMXEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\BaseRepository.cs" />
-    <Compile Include="Repositories\IReposiroty.cs" />
-    <Compile Include="Repositories\IRepositoryAsync.cs" />
-    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\IUnitOfWorkAsync.cs" />
-    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="StoreProcedure\" />
+    <Folder Include="Enum\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Entity\DataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="Entity\DataModel.edmx.diagram">
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Entity\LogDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LogDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\LogDataModel.edmx.diagram">
+      <DependentUpon>LogDataModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Begium.Core\Begium.Core.csproj">
-      <Project>{e21b87b2-25eb-4710-8364-720054970db8}</Project>
-      <Name>Begium.Core</Name>
-    </ProjectReference>
+    <Content Include="Entity\DataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entity\DataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\LogDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogDataModel.edmx</DependentUpon>
+      <LastGenOutput>LogDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\LogDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogDataModel.edmx</DependentUpon>
+      <LastGenOutput>LogDataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

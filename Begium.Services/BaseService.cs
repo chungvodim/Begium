@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Begium.Data.UnitOfWork;
+using Begium.Core.UnitOfWork;
 using System;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
-using Begium.Data.Repositories;
+using Begium.Core.Repositories;
 using Begium.Core;
 
 namespace Begium.Services
