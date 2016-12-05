@@ -45,22 +45,22 @@ namespace Begium.Web
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            Exception exception = Server.GetLastError();
-            Server.ClearError();
-            try
-            {
-                HttpException httpException = (HttpException)exception;
-                int httpCode = httpException.GetHttpCode();
-                switch (httpCode)
-                {
-                    case 404: Response.Redirect("/Errors/NotFound"); break;
-                    default: Response.Redirect("/Errors/Index"); break;
-                }
-            }
-            catch
-            {
-                Response.Redirect("/Errors/Index");
-            }
+            //Exception exception = Server.GetLastError();
+            //Server.ClearError();
+            //try
+            //{
+            //    HttpException httpException = (HttpException)exception;
+            //    int httpCode = httpException.GetHttpCode();
+            //    switch (httpCode)
+            //    {
+            //        case 404: Response.Redirect("/Errors/NotFound"); break;
+            //        default: Response.Redirect("/Errors/Index"); break;
+            //    }
+            //}
+            //catch
+            //{
+            //    Response.Redirect("/Errors/Index");
+            //}
         }
     }
 }

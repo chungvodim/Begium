@@ -4,33 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/main.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <header class="site-header">
+        <nav>
+            <div class="col-md-3 col-xs-6">
+                <a class="" href="@Url.Action("Mockup")">
+                    <img src="//www.2dehands.be/css/3164/images/2dehands-be_logo.svg" alt="" class="logo">
+                </a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+            <div class="col-md-5">
+                <ul class="nav navbar-nav be-nav">
+                    <li class="active"><a>Dashboard</a></li>
+                    <li><a>Listings</a></li>
+                    <li><a>Leads</a></li>
+                    <li><a><i class="fa fa-thumb-tack" aria-hidden="true"></i> Ad Listing</a></li>
                 </ul>
             </div>
-        </div>
-    </div>
+            <div class="col-md-4 col-xs-6">
+            </div>
+        </nav>
+    </header>
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 

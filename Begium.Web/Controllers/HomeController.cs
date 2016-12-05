@@ -40,6 +40,10 @@ namespace Begium.Web.Controllers
             //return View();
             return View(_comments);
         }
+        public ActionResult Mockup()
+        {
+            return View();
+        }
         // Improving Performance with Output Caching. The output is cached for 10 seconds.
         // Content is cached in three locations: the web server, any proxy servers, and the web browser
         // By default, the Location property has the value Any
