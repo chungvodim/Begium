@@ -94,7 +94,7 @@ textarea {
 }
 
 .body-content {
-    min-height: 500px;
+    /*min-height: 500px;*/
     background-color: rgb(255,247,216);
     max-width: 1280px;
 }
@@ -102,6 +102,9 @@ textarea {
 .site-footer {
     background-color: #323e59;
     color: #c8cad2;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-content {
@@ -115,10 +118,10 @@ textarea {
     padding-top: 10px;
 }
 
-    .copyrights-logo img {
-        width: auto;
-        height: 24px;
-    }
+.copyrights-logo img {
+    width: auto;
+    height: 24px;
+}
 
 .footer-social-media div {
     margin-bottom: 10px;
