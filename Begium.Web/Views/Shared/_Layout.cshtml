@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/fonts-woff.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/icons.svg.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/main.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
     <header class="site-header">
-        <nav>
-            <div class="col-md-3 col-xs-6">
-                <a class="" href="@Url.Action("Mockup")">
+        <nav class="row col-md-12 col-lg-12 padding-0 margin-0">
+            <div class="col-md-3 col-lg-3 col-xs-6 padding-0">
+                <a class="" href="@Url.Action("Index")">
                     <img src="//www.2dehands.be/css/3164/images/2dehands-be_logo.svg" alt="" class="logo">
                 </a>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 col-lg-5 padding-0">
                 <ul class="nav navbar-nav be-nav">
                     <li class="active"><a>Dashboard</a></li>
                     <li><a>Listings</a></li>
@@ -25,22 +27,49 @@
                     <li><a><i class="fa fa-thumb-tack" aria-hidden="true"></i> Ad Listing</a></li>
                 </ul>
             </div>
-            <div class="col-md-4 col-xs-6">
-                <div class="col-md-8">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <div class="col-md-4">
-                    <img class="img-circle avatar" src="~/images/avatar.jpg"/>
-                </div>
+            <div class="col-md-3 col-lg-3">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <div class="col-md-1 col-lg-1 padding-0">
+                <img class="img-circle pull-right avatar" src="~/images/avatar.jpg" />
             </div>
         </nav>
     </header>
-
+    <div class="row col-md-12 col-lg-12 col-xs-12 header-footer"></div>
     <div class="container body-content">
         @RenderBody()
-        <footer>
-        </footer>
     </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="row col-md-12 margin-0 padding-0">
+                <div class="col-md-6 col-lg-6 padding-0 footer-social-media">
+                    <div>Bekijk 2dehands.be op:</div>
+                    <ul class="list-inline">
+                        <li><a href="https://www.facebook.com/2dehands" target="_blank" title="Facebook" class="icon-facebook social-media-link"></a></li>
+                        <li><a href="https://www.twitter.com/2dehandsBE" target="_blank" title="Twitter" class="icon-twitter social-media-link"></a></li>
+                        <li><a href="https://plus.google.com/+2dehands/" target="_blank" title="Google+" class="icon-google social-media-link"></a></li>
+                        <li><a href="https://instagram.com/2dehands" target="_blank" title="Instagram" class="icon-instagram social-media-link"></a></li>
+                        <li><a href="https://www.pinterest.com/2dehands/" target="_blank" title="Pinterest" class="icon-pinterest social-media-link"></a></li>
+                        <li><a href="https://www.linkedin.com/company/2dehands" target="_blank" title="Linkedin" class="icon-linkedin social-media-link"></a></li>
+                        <li><a href="https://www.youtube.com/2dehands" target="_blank" title="Youtube" class="icon-youtube social-media-link"></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-6 padding-0 footer-apps">
+                    <div style="margin-bottom:30px;"></div>
+                    <div class="col-md-12 padding-0">
+                        <a href="https://app.adjust.com/37qcux" target="_blank" class="icon-app-store-nl"></a>
+                        <a href="https://app.adjust.com/gc8rng" target="_blank" class="icon-play-store-nl"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row col-md-12 margin-0 padding-0 copyrights-logo">
+                <a href="/">
+                    <img src="//www.2dehands.be/css/3164/images/2dehands-be_logo-white.svg" alt="Het grootste aanbod koopjes vindt u op 2dehands.be. De gratis zoekertjessite voor tweedehands en nieuwe artikelen.">
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
